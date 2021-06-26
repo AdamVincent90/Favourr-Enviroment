@@ -1,3 +1,3 @@
 # Favourr-Enviroment
 
-git clone/pull other repos into here 
+Docker Compose Up Here
