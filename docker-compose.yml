@@ -4,10 +4,12 @@ services:
     container_name: favourr-api
     build: Favourr-Api-2/
     ports:
-      - 4000:4000
+      - 4000:4001
       - 4002:80
   go_front:
     container_name: favourr-front
     build: Favourr-Front/
     ports:
       - "8080:8080"
+    depends_on:
+      - go_api
