@@ -11,11 +11,21 @@ services:
   favourr_react_native_frontend:
     container_name: favourr-frontend
     build: Favourr-Front/
+      context: .
+        args:
+          - NODE_ENV=development
+    environment:
+      - NODE_ENV=development
+    tty: true
     ports:
-      - 19000:19000
-      - 19001:19001
-      - 19002:19002
-      - 19006:19006
+      - '19006:19006'
+      - '19001:19001'
+      - '19002:19002'
+    volumes:
+      - ./react_native_app:/opt/react_native_app/app:delegated
+      - ./react_native_app/package.json:/opt/react_native_app/package.json
+      - ./react_native_app/package-lock.json:/opt/react_native_app/package-lock.json
+      - notused:/opt/react_native_app/app/node_modules
     depends_on:
       - favourr-backend
   favourr_postgres_database:
