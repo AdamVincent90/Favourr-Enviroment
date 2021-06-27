@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Favourr-Api-2/Dockerfile
     volumes:
-      - ./:/app
+      - ./Favourr-Api-2:/app
     ports:
       - 4000:4000
       - 8080:80
@@ -15,10 +15,8 @@ services:
   favourr_react_native_frontend:
     container_name: favourr-frontend
     build:
-      context: .
-      dockerfile: Favourr-Front/Dockerfile
-    volumes:
-      - ./:/app
+      context: Favourr-Front
+      dockerfile: Dockerfile
     environment:
       - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
       - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
