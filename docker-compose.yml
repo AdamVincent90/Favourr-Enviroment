@@ -35,7 +35,7 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - 5434:5432
+      - 5440:5432
   favourr_hasura_graphql_engine:
     container_name: favourr-hasura
     image: hasura/graphql-engine:latest
