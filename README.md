@@ -6,12 +6,12 @@
 - inside this directory run `sh macclone.sh` or `winclone.bat` on mac/windows to clone, install and run child dependencies locally
 - run command `docker compose up ` (You need to have docker desktop installed) to create docker enviroment network and image
 - cd into the api or frontend directory and develop
-- to pull recent changed either run `sh pull.sh` from enviroment directory to pull all the latest changes or git pull from the selected directory (api or front) to pull their desired changes.
+- to pull recent changes, either run `sh macpull.sh` or `winpull.bat` (mac / windows) from the enviroment directory (network root) to pull all the latest changes or git pull from the selected directory (api or front) to pull their desired changes.
 
 # Containers
 
 - Golang Backend Handlers + Server @ `localhost:4000`
-- React Native Frontend (web) @ `localhost:19006`
+- React Native Frontend (web) @ `localhost:19006` / Expo CLI @ `localhost:19000`
 - Hasura GraphQL Engine @ `localhost:8902`
 - Postgres Database Port 5432
 
@@ -20,3 +20,5 @@
 - Golang reflex to hot reload changes from local to internal docker image
 - React Native Hot reload on save between image + emulators
 - Golang migration/seeders for postgres db + auto track and import to hasura
+
+## A remaster of Favourr app
