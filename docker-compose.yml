@@ -12,9 +12,11 @@ services:
     container_name: favourr-frontend
     build: Favourr-Front/
     ports:
-      - "19006:19006"
-      - "19001:19001"
-      - "19002:19002"
+      - 19006:19006
+      - 19001:19001
+      - 19000:19000
+      - 19002:19002
+      - 19003:19003
     depends_on:
       - favourr-backend
   favourr_postgres_database:
