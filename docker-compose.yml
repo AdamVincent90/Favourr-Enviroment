@@ -2,7 +2,9 @@ version: "3.9"
 services:
   favourr_golang_server:
     container_name: favourr-backend
-    build: Favourr-Api-2/
+    build:
+      context: .
+      dockerfile: Favourr-Api-2/Dockerfile
     volumes:
       - ./:/app
     ports:
@@ -12,7 +14,9 @@ services:
       - favourr-db
   favourr_react_native_frontend:
     container_name: favourr-frontend
-    build: Favourr-Front/
+    build:
+      context: .
+      dockerfile: Favourr-Front/Dockerfile
     volumes:
       - ./:/app
     environment:
