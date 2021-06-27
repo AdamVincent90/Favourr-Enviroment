@@ -1,15 +1,24 @@
 version: "3.9"
 services:
-  go_api:
+  favourr-api:
     container_name: favourr-api
     build: Favourr-Api-2/
     ports:
       - 4000:4000
       - 4001:80
-  go_front:
+    depends_on:
+      - favourr_db
+  favourr-front:
     container_name: favourr-front
     build: Favourr-Front/
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
       - go_api
+  favourr_db:
+    container_name: favourr-db
+    image: neo4j:latest
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687
