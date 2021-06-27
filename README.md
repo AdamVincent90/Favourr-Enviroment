@@ -11,7 +11,7 @@
 # Containers
 
 - Golang Backend Handlers + Server @ `localhost:4000`
-- React Native Frontend @ `localhost:19002`
+- React Native Frontend (web) @ `localhost:19006`
 - Hasura GraphQL Engine @ `localhost:8902`
 - Postgres Database Port 5432
 
