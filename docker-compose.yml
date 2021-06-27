@@ -3,17 +3,22 @@ services:
   favourr_golang_server:
     container_name: favourr-backend
     build: Favourr-Api-2/
+    volumes:
+      - ./:/app
     ports:
       - 4000:4000
-      - 4001:80
+      - 8080:80
     depends_on:
       - favourr-db
   favourr_react_native_frontend:
     container_name: favourr-frontend
     build: Favourr-Front/
+    volumes:
+      - ./:/app
     environment:
       - REACT_NATIVE_PACKAGER_HOSTNAME=0.0.0.0
       - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - CHOKIDAR_USEPOLLING=true
     ports:
       - 19000:19000
       - 19001:19001
