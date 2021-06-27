@@ -48,3 +48,5 @@ services:
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
     depends_on:
       - favourr-db
+volumes:
+  node_modules:
