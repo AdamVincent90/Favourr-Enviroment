@@ -23,7 +23,7 @@ services:
       - 19006:19006
     volumes:
       - .:/usr/src/app
-      - node_modules:/usr/src/app/Favourr-Front/node_modules
+      - node_modules:/usr/src/app/node_modules
     depends_on:
       - favourr-backend
   favourr_postgres_database:
