@@ -10,14 +10,13 @@
 
 # Containers
 
-- Golang API @ `localhost:4000`
-- Vue Frontend @ `localhost:8080`
-- Neo4j DB @ `localhost:7474`
-
-Internal docker ports are mapped from the same local port.
+- Golang Backend Handlers + Server @ `localhost:4000`
+- React Native Frontend @ `localhost:19002`
+- Hasura GraphQL Engine @ `localhost:8902`
+- Postgres Database Port 5432
 
 ## TODO
 
 - Golang reflex to hot reload changes from local to internal docker image
-- Vue Hot reload on save between vue node image
-- Go API to Neo4j DB connection
+- React Native Hot reload on save between image + emulators
+- Golang migration/seeders for postgres db + auto track and import to hasura

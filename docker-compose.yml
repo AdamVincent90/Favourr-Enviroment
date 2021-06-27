@@ -1,24 +1,42 @@
 version: "3.9"
 services:
-  favourr_api:
-    container_name: favourr-api
+  favourr_golang_server:
+    container_name: favourr-backend
     build: Favourr-Api-2/
     ports:
       - 4000:4000
       - 4001:80
     depends_on:
       - favourr_db
-  favourr_front:
-    container_name: favourr-front
+  favourr_react_native_frontend:
+    container_name: favourr-frontend
     build: Favourr-Front/
     ports:
-      - 8080:8080
+      - 19000:19000
+      - 19001:19001
+      - 19002:19002
+      - 19006:19006
     depends_on:
-      - go_api
-  favourr_db:
+      - favourr-backend
+  favourr_postgres_database:
     container_name: favourr-db
-    image: neo4j:latest
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
     ports:
-      - 7474:7474
-      - 7473:7473
-      - 7687:7687
+      - 5434:5432
+  favourr_hasura_graphql_engine:
+    container_name: hasura-client
+    image: hasura/graphql-engine:latest
+    ports:
+      - "8902:8080"
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:example@favourr_db:5432/postgres
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+    depends_on:
+      - favourr-db
