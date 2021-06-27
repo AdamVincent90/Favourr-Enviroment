@@ -26,7 +26,7 @@ services:
     ports:
       - 5434:5432
   favourr_hasura_graphql_engine:
-    container_name: hasura-client
+    container_name: favourr-hasura
     image: hasura/graphql-engine:latest
     ports:
       - "8902:8080"
