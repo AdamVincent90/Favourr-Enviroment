@@ -15,9 +15,12 @@
 - Hasura GraphQL Engine @ `localhost:8902` mapped and dependant on postgres database
 - Postgres Database is mapped to local machine port 5440 use default open credentials: address: localhost, port: 5440, username: postgres, password: example, database: postgres
 
+# Current features
+
+- Golang server and react native expo cli frontend hot reload
+
 ## TODO
 
-- React Native Hot reload on save between image + emulators installation
 - Golang migration/seeders for postgres db + auto track and import to hasura
 
 ## A remaster of Favourr app
